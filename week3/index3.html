@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css" />
+    <title>Week 3 Notes</title>
+</head>
+<body>
+    <h1>WDD330 Week 3 Notes</h1>   
+    <section>
+         <h2>Object literals</h2>    
+         <p>An object in JavaScript is a self-contained set of related values and functions.</p>
+         <h2>Method</h2>
+         <p>If a property’s value is a function, it is known as a method.</p>
+         <h2>Naming </h2>    
+         <p>If a property’s name doesn’t follow the rules for naming variables, it needs to be quoted. </p>
+         <h2>Accessing properties</h2>
+         <p>You can access the properties of an object using the dot notation.
+            You can also access an object’s properties using bracket notation. </p>
+         <h2>Calling methods</h2>    
+         <p>To call an object’s method we can also use dot or bracket notation. Calling a method is the same as invoking a function, so parentheses need to be placed after the method name</p>
+         <h2>Checking if Properties or Methods Exist</h2>
+         <p>The in operator can be used to check whether an object has a particular property.
+            Another way is to use the hasOwnProperty()</p>
+         <h2>Object.entries()</h2>   
+         <p>Returns an array consisting of enumerable property [key, value] pairs of the object which are passed as the parameter.</p>
+         <h2>Object.values()</h2>
+         <p>Returns an array whose elements are the enumerable property values found on the object</p>
+         <h2>Object.keys()</h2>
+         <p>The Object.keys() method will return an array of all the keys of any object that is provided as an argument</p>
+         <h2>Adding Properties</h2>
+         <p>New properties and methods can be added to objects at any time in a program. This is done by simply assigning a value to the new property.</p>
+         <h2>Removing Properties</h2>
+         <p>Any property can be removed from an object using the delete operator</p>
+        <h2>Namespacing</h2>
+        <p>Naming collisions occur when the same variable or function name is used for different purposes by code sharing the same scope.
+            A solution to this problem is to use theobject literal patternto create a namespace for groups of related functions</p>
+    </section>
+    <section>
+        <h2>Creating regular expressions</h2>
+        <ul>
+            <li>Literal notation</li>
+            <li>Create a new instance of RegExp</li>
+        </ul>
+        <h2>DOM</h2>     
+        <p>Allows access to elements of a web page and enable interaction with the page by adding and removing elements, changing the order, content and attributes of elements, and even altering how they are styled.</p>    
+        <h2>DOM Shortcut methods</h2>
+        <ul>
+            <li>document.body</li>
+            <li>document.image</li>
+            <li>document.links</li>
+            <li>document.anchors</li>
+            <li>document.forms</li>
+        </ul>
+        <h2>Query selectors</h2>
+        <ul>
+            <li>document.querySelector()</li>
+            <li>document.querySelectorAll()</li>
+        </ul>
+    </section>
+    <section>    
+        <h2>Event handlers</h2>
+        <h2>Event listeners</h2>
+        <p>The recommended way of dealing with events, and the current standard, is to use event listeners</p>
+        <h2>Event target</h2>
+        <p>The target property returns a reference to the node that fired the event.</p>
+        <h2>Coordinates of an event</h2>
+        <ul>
+            <li>screenX and screenY</li>
+            <li>clientX and clientY</li>
+            <li>pageX and pageY</li>
+        </ul>
+        <h2>Mouse events</h2>
+        <ul>
+            <li>mousedown</li>
+            <li>mouseup</li>
+        </ul>
+        <h2>Keyboard events</h2>
+        <ul>
+            <li>keydown</li>
+            <li>keypress</li>
+            <li>keyup</li>
+        </ul>
+        <h2>Stopping default behavior</h2>
+        <p>preventDefault() is a method of the event object that can be used inside the callback function to stop the default behavior happening</p>
+   </section>
+   <button onclick="goBack()">Go Back</button>
+
+   <script>
+   function goBack() {
+   window.history.back();
+   }
+   </script>
+</body>
+</html>

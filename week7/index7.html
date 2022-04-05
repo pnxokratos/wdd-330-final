@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>WWD 330</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+    <h1>WDD330 Week 7 Notes</h1> 
+    <h2>Week07</h2>
+    <h3>Notes</h3>
+    <h3>Chapter 11 (Further Functions)</h3>
+    <li>The call() method is used to "call" a value of "this" inside a function.</li>
+    <p>So here's an example:<br>
+        const clark = { name: 'Clark' };<br>
+        const bruce = { name: 'Bruce' };<br>
+        sayHello.call(clark);<br>
+        The result is => 'Hello, my name is Clarke'<br>
+        So we are just calling it inside of another function, like a callback.</p>
+    <li>The apply() method</li>
+    <p>This works in the same way, but the arguments of the function have to be provided as an array, even if there's
+        only one argument.<br>
+        Example: sayHello.apply(null, [Bruce]);<br>
+        The null is required because it has to be the first argument in the apply() method.</p>
+    <li>If you use the call()method but you aren't using a function that has a "this" in it, you also need to use the
+        null like this:</li>
+    <p>square.call(null, 4) => this square function doesn't have a "this" in it, so if you use the call() method, you
+        have to use null as a parameter.</p>
+    <li>The <em><strong>spread operator</strong></em> can be used to split an array of values into separate parameters.
+        I keep forgetting about the spread operator and what it does. So pay attention to this bullet point!</li>
+    <li>You can use the cache to store information on the stort term rather than using big functions to go get the
+        answer. It can look something like this:</li>
+    <p>function square(x){<br>
+        square.cache = square.cache || {};<br>
+        if (!square.cache[x]) {<br>
+        square.cache[x] = x*x;<br>
+        }<br>
+        return square.cache[x]<br>
+        }<br>
+        If you type square.cache; it gives you "{"3": 9, "-11": 121}"
+    </p>
+    <h4>Immediately Invoked Function Expressions (IIFE)</h4>
+    <li>You can invoke a function immediately by adding parenthesis at the end of the function and surrounding the whole
+        thing in parenthesis like so:</li>
+    <p>(function(){<br>
+        const temp = 'World';<br>
+        console.log(`Hello ${temp}`);<br>
+        })();</p>
+    <li>If you name variables inside an IFFE, those are just temporary variables.</li>
+    <li>You can use 'use strict'; inside an IFFE to avoid any sloppy coding practices. Placing it inside an IFFE helps
+        control just one function rather than trying to apply it to a whole page.</li>
+    <h4>Init-Time Branching</h4>
+    <li>Something about initializing functions the first time they're called. I don't really get it yet. </li>
+    <h4>Recursive Functions</h4>
+    <li>It invokes itself until a certain condition is met.</li>
+    <li>Here is an example of a recursive function:</li>
+    <p>function collatz(n, sequence=[n]) {<br>
+        if (n === 1){<br>
+        return `Sequence took ${sequence.length} steps. It was ${sequence}`;<br>
+        }<br>
+        if (n%2 === 0) {<br>
+        n = n/2;<br>
+        } else { <br>
+        n = 3*n + 1;<br>
+        }<br>
+        return collatz(n,[...sequence,n]);<br>
+        }</p>
+    <li>This function above is interesting because the return is calling the function again, but uses the spread
+        operator. This keeps going until the sequence reaches 1.</li>
+    <h4>Event Loop</h4>
+    <li>I watched a video by Phillip Roberts about event loops. When a function is invoked, it goes onto the call stack.
+    </li>
+    <li>If it needs to go to the Web API, it sits there for a second then drops down to the queue.</li>
+    <li>The queue can only use the even loop to push back onto the call stack when the call stack is empty.</li>
+    <h4>Promises</h4>
+    <li>A promise represents the future result of an asynchronous operation. Promises don't do anything that can't
+        already
+        be achieved using callbacks, but they help simplify the process, and avoid the convoluted code that can result
+        from using multiple callbacks. Here's an example;</li>
+    <p>const promise = new Promise( (resolve, reject) => {<br>
+        // initialization code goes here<br>
+        if (success) {<br>
+        resolve(value);<br>
+        } else {<br>
+        reject(error);<br>
+        }<br>
+        });</p>
+    <li>resolve() and reject() are methods that deal with a promise.</li>
+    <li>setTimeout() is a function that helps delay something</li>
+    <li>The then() method is used to deal with the outcome of the settled promise. It accepts 2 arguments.</li>
+    <ul>
+        <li>1st argument is a <em>fulfilment function</em> that's called when a promise is resolved. So whatever the
+            result is from resolve() will be passed on to the then()</li>
+        <li>2nd argement is a rejection function that's called if a promise is rejected. Same thing, whatever data is
+            returned from the reject() will be passed on to the then()</li>
+    </ul>
+    <li>Here's an example: promise.then( result => console.log(`Yes! I rolled a ${result}`), result =>
+        console.log(`Drat! ... I rolled a ${result}`) );</li>
+    <li>If a promise fails, you can use the catch() method: promise.catch( result => console.log(`Drat! ... I rolled a
+        ${result}`));</li>
+    <li>You can chain multiple promises together.</li>
+    <h4>Async Functions</h4>
+    <li>"async" is a keyword written before the word function to make an asynchronous function act like a syncronous
+        function.</li>
+    <li>You use the "await" operator before the function that is asynchronous</li>
+    <li>So rather than having the code just move forward while it waits for the asynchronous code to run, the "await"
+        operator (keyword) makes it stop and wait for it to resolve before moving on.</li>
+    <h4>Closures</h4>
+    <li>Variables and scope: const created inside a function can only be seen inside that function</li>
+    <li>If there is a function within a function, the inside function can see the variables in it's function and the one
+        its nested it.</li>
+    <li>A <em>closure</em> is formed when the inner function is returned by the outer function, maintaining access to
+        any variables declared inside the enclosing function.</li>
+    <li>Closures not only haveaccessto variables declared in a parent function's scope, they can also change the value
+        of these variables.</li>
+    <h4>Generators</h4>
+    <li>They use the asterisk * after the word function like this: function* nameGoesHere(){}</li>
+    <li>None of the code will run until the next() method is called and used</li>
+    <li>Generator functions use the keyword "yield" instead of "return". The benefit of this is the state of the value
+        returned is rememebered the next time yield is called.</li>
+    <h4>Pure Functions</h4>
+    <li>I don't need to write too much about pure functions but its found in this chapter.</li>
+    <h4>Higher Order Functions</h4>
+    <li>Higher-order functions are functions that accept another function as an argument, or return another function as
+        a result, or both.</li>
+    <h4>Currying</h4>
+    <li>Uses just a part of a function instead of the whole thing.</li>
+    <li>Currying allows you to turn a single function into a series of functions instead.</li>
+    <h3>Chapter 13 - AJAX</h3>
+    <li>Ajax is a technique that allows web pages to communicate asynchronously with a server, and it dynamically
+        updates web pages without reloading.</li>
+    <li>Ajax makes web pages more dynamic</li>
+    <li>Ajax makes it so you don't have to reload the page to refresh certain content. The page can be running and then
+        certain things can refresh and different times without reloading the whole page.</li>
+    <li>API = Application Programming Interface</li>
+    <li>fetch() method grabs a URL: fetch('https://example.com/data')</li>
+    <li>When we use a fetch on a url, we can make it a promise statement by adding the then() and catch() methods.</li>
+    <li>You can use the .statusText property to give you the exact code of the error message so you can look it up.</li>
+    <li>Here's an example of a redirect() method using a response promise:</li>
+    <p>
+        fetch(url)<br>
+        .then( response => response.redirect(newURL)); // redirects to another URL<br>
+        .then( // do something else )<br>
+        .catch( error => console.log('There was an error: ', error))
+    </p>
+    <li>The <em>text()</em> method takes a stream of text from the response, reads it to completion and then returns a
+        promise
+        that resolves to a USVSting object that can be treated as a string in JavaScript.</li>
+    <li>The blob() method takes raw data and turns it into something usable in JS. This might be really handy for the
+        team assignment.</li>
+    <li>You can create your own, custom response() object. Example: const response = new Response( 'Hello!', {<em>data
+            input goes here</em> )};</li>
+    <li>I read about headers, I read about requests(), creating new Response() objects, now we are going to put it all
+        together in a simple add todo app. Here's an example of the js code:</li>
+    <p>
+        const form = document.forms['todo'];<br>
+        form.addEventListener('submit', addTask, false);<br>
+        function addTask(event) {<br>
+        event.preventDefault();<br>
+        const task = new FormData(form);<br>
+        const url = `http://echo.jsontest.com/id/1/title/${form.task.value}`;<br>
+        const headers = new Headers({<br>
+        'Accept': 'application/json',<br>
+        'Content-Type': 'application/json'<br>
+        });<br>
+        const request = new Request(url,<br>
+        {<br>
+        method: 'POST',<br>
+        mode: 'cors',<br>
+        header: headers,<br>
+        body: JSON.stringify(task)<br>
+        }<br>
+        )<br><br>
+        fetch(request)<br>
+        .then( response => response.json() )<br>
+        .then( data => console.log(`${data.title} saved with an id of ${data.id}`) )<br>
+        .catch( error => console.log('There was an error:', error))<br>
+        }
+    </p>
+
+    <button onclick="goBack()">Go Back</button>
+
+   <script>
+   function goBack() {
+   window.history.back();
+   }
+   </script>
+</body>
+
+</html>

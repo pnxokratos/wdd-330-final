@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css" />
+    <title>Week 1 Notes</title>
+</head>
+
+<body>
+    <h1>WDD330 Week 1 Notes</h1>
+    <h2>Local Storage</h2>
+    <p>
+        Javascripts localStorage can be used to save key/value pairs in the web browser. The data is stored even if the
+        browser is closed.<br>
+        Syntax for saving is as follows: localStorage.setItem(“key”, “value”);<br>
+        Values can then be accessed through grabbing the info via key<br>
+        Syntax for this: var newVariable = localStorage.getItem(“key”);
+        </p>
+        <h2>Mobile first tips</h2>
+        <p>
+        Mobile first = better functionality<br>
+        Loading must be quick (less steps = better)<br>
+        Reachability matters when designing for touch<br>
+        Increase speed by reducing image usage, use svg/webfonts, optimize CSS and JS files.<br>
+        <br>
+        Have passwords toggle visibility (helps prevent errors when filling out on mobile)<br>
+        Linking phone numbers on website make it much easier for mobile devices<br>
+        <h2>Master Mobile UX videos:</h2>
+        <p>
+        The word menu made to look like a button had an increase of 20% of clicks.<br>
+        User won't spend their time to tell you that your web app is not good.<br>
+        Ask only the more necessary things in forms.<br>
+        When asking for passwords is better to show the password and give the option to the user to hide it<br>
+        </p>
+    </p>
+    <button onclick="goBack()">Go Back</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+</body>
+
+</html>

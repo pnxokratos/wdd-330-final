@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>WWD 330</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <h1>WDD 330 - Web Frontend Development</h1>
+    <h2>Week 10</h2>
+    <li>This week's reading is about using Fetch and Client-Side Form Validation.</li>
+    <li>Fetch reading url = https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch</li>
+    <li>Client-Side Form Validation reading url =https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation
+    </li>
+    <li>Simple Fetch statement:<br>
+        fetch('http://example.com/movies.json')<br>
+        .then(response => response.json())<br>
+        .then(data => console.log(data));</li>
+    <li>The simplest use of fetch() takes one argument and returns a promise containing the response (a Response
+        object).</li>
+    <h3>Sending a request with credentials included</h3>
+    <li>To cause browsers to send a request with credentials included, even for a cross-origin call, add credentials:
+        'include' to the init object you pass to the fetch() method.</li>
+    <li>Files can be uploaded using an HTML input type="file" input element, FormData() and fetch().</li>
+    <li>Files can be uploaded using an HTML input type="file" multiple input element, FormData() and fetch().</li>
+    <li>Both of the "input" and the "multiple" above would go inside the input tag.</li>
+    <h3>Checking that a fetch was successful</h3>
+    <li>An accurate check for a successful fetch() would include checking that the promise resolved, then checking that
+        the Response.ok property has a value of true.</li>
+    <p>fetch('flowers.jpg')<br>
+        .then(response => {<br>
+        if (!response.ok) {<br>
+        throw new Error('Network response was not ok');<br>
+        }<br>
+        return response.blob();<br>
+        })<br>
+        .then(myBlob => {<br>
+        myImage.src = URL.createObjectURL(myBlob);<br>
+        })<br>
+        .catch(error => {<br>
+        console.error('There has been a problem with your fetch operation:', error);<br>
+        });</p>
+    <h3>Headers</h3>
+    <li>The Headers interface allows you to create your own headers object via the Headers() constructor.</li>
+    <li>A headers object is a simple multi-map of names to values.</li>
+    <li>You can combine a lot of this cool info, like Response objects "response.ok" and such, with headers and new
+        Blob's</li>
+    <h3>Client-side form validation</h3>
+    <li>There's built-in form validation and then there's your own custom JS.</li>
+    <li>Required, min and max length, type, and pattern are all attributes you can use to ensure valid form fields.</li>
+    <li>There's valid and invalid checks.</li>
+    <li>You can add CSS to an invalid input.</li>
+  
+
+    <script>
+        function goBack() {
+        window.history.back();
+        }
+    </script>
+
+</body>
+
+</html>

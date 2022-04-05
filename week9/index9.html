@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>WWD 330</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <h1>WDD330 Week 9 Notes</h1> 
+    <h2>Week09</h2>
+    <h3>Notes</h3>
+    <h4>Chapter 9 (The Window Object) - Novice to Ninja</h4>
+    <li>BOM - Browser Object Model. A quick way of assigning the variable global to the global object looks like this:
+        const global = this;</li>
+    <li>Global variables don't need a const or let or var in front: x = 6;</li>
+    <li>window.alert(), window.confirm() and window.prompt() will stop the browser from running it's program, so use
+        with caution.</li>
+    <li>window.navigator.userAgent tells info about the user's browser, but this may not always be accurate because it
+        can be changed manually by the user.</li>
+    <li>window.location.href, window.location.protocol, window.location.host, window.location.port,
+        window.location.pathname, window.location.search, window.location.hash, window.location.origin,
+        window.location.assign('https://www.sitepoint.com/'), window.location.toString()
+        are all referenced in this chapter. I'm listing them here as a reference point if I need them to go back and
+        look them up. </li>
+    <li>The Browser History - window.history.go(1); // goes forward 1 page</li>
+    <li>A new window can be opened using the window.open() method. This takes the URL of the page to be opened as its
+        first parameter, the window title as its second parameter, and a list of attributes as the third parameter.
+    </li>
+    <li>popup.close(), window.moveTo(0,0); // will move the window to the top-left corner of the screen,
+        window.resizeTo(600,400);</li>
+    <li>More Properties: window.screen.height, window.screen.width, window.screen.availWidth, window.screen.availHeight,
+        window.screen.colorDepth;</li>
+    <h4>The Document Object</h4>
+    <li>This writes a string of text to a page: document.write('Hello, world!');</li>
+    <li>This is interesting because the reading then goes on to say, "but don't use this, it's not what a ninja
+        programmer would do.</li>
+    <h4>Cookies</h4>
+    <li>document.cookie = 'name=Superman';</li>
+    <li>Cookies are session cookies by default. This means they are deleted once a browser session is finished (when the
+        user closes the browser tab or window).</li>
+    <li>You can set the cookie to expire later than when a user closes the browser, say one day.</li>
+    <li>Example: document.cookie = 'name=Batman; max-age=86400' // 86400 secs = 1 day</li>
+    <li>Adding the string ; secure to the end of a cookie will ensure it’s only transmitted over a secure HTTPS network.
+    </li>
+    <li>To delete a cookie, you need to set it to expire at a time in the past: document.cookie = 'name=Batman;
+        expires=Thu, 01 Jan 1970 00:00:01 GMT';</li>
+    <h4>Timing Functions</h4>
+    <li>You can have functions repeat at certain intervals, or schedule a function to execute.</li>
+    <li>The window.setTimeout() method accepts a callback to a function as its first parameter and a number of
+        milliseconds as its second parameter. </li>
+    <li>clearInterval() and clearTimeout() will help clear out the things you don't need anymore.</li>
+    <li>setTimeOut() and setInterval() can help create animations. Let's see if I can make one below this list item.
+    </li>
+    <div id="square"></div>
+    <h4>Chapter 14 (HTML5 APIs)</h4>
+    <li>The data attribute is a way of embedding data into a web page without interferring with the browser. The browser
+        can just ignore the data.</li>
+    <li>Naming the data attributes: must start with "data-".</li>
+    <li>They must contain only lowercase letters, numbers, hyphens, dots, colons or underscores. No uppercase.</li>
+    <li>Include an optional string value.</li>
+    <li>Some examples:</li>
+    <ul>
+        <li>data-powers = 'flight superSpeed'</li>
+        <li>data-rating = '5'</li>
+        <li>data-dropdown</li>
+        <li>data-user = 'DAZ'</li>
+        <li>data-max-length = '32'</li>
+    </ul>
+    <li>The word "dataset" also seems to be a keyword to accessing the data- attribute.</li>
+    <h4>HTML5 Web Storage</h4>
+    <li>Using APIs is like using cookies except you can store more information, has fewer restrictions, and is generally
+        easier to use.</li>
+    <li>Web Storage API has some crucial differences with cookies:</li>
+    <ul>
+        <li>Information stored isnotshared with the server on every request.</li>
+        <li>Information is available in multiple windows of the browser (but only if the domain is the same).</li>
+        <li>Storage capacity limit is much larger than the 4KB limit for cookies ( There is no actual limit in the
+            specification, but most browsers have a limit set at 5GB per domain.).</li>
+        <li>Any data stored does not automatically expire as it does with cookies. This potentially makes cookies a
+            better
+            choice for something like showing a popup once a day.</li>
+    </ul>
+    <li>To set something to a value locally: localStorage.setItem('name', 'Walter White');</li>
+    <li>Rather than using getItem() and setItem(), you can do it like this: localStorage.name = 'Heisenberg';</li>
+    <li>You can delete an element like this: delete localStorage.name;</li>
+    <li>To complete wipe out the LS: localStorage.clear();</li>
+    <li>Here's an example: addEventListener('storage', (event) => {<br>
+        console.log(`The ${event.key} was updated from ${event.oldValue} to ${event.newValue} and saved in<br>
+        ${event.storageArea}`) }, false);</li>
+    <li>localStorage.setItem('superman', JSON.stringify(hero);</li>
+    <li>This will save the hero object as a JSON string using the string 'superman' as the key. To retrieve the
+        superhero as a JavaScript object:</li>
+    <li>superman = JSON.parse(localStorage.getItem('superman'));</li>
+    <li>Getting a user's location is pretty easy through the geolocation api.
+        "navigator.geolocation.getCurrentPosition(youAreHere);"</li>
+    <li>The position object has several other properties too like position.speed, position.altitude, position.heading,
+        position.timestamp</li>
+    <h4>Web Workers! (what a great name!)</h4>
+    <li>Web workers run in the background so other things can run in the foreground.</li>
+    <li>Worker constructor function could look like this: const worker = new Worker('task.js');</li>
+    <p><i>(Chrome browser won't let you run workers from local files like this. A workaround is start Chrome using the
+            --allow-file-access-from-files flag, or simply use a different browser for this example.)</i></p>
+    <li>Use the postMessage() method to send a message and start a worker working. worker.postMessage('Hello');</li>
+    <li>Use the keyword "self" to send a message <i>from</i> the the worker: self.postMessage('Finished');</li>
+    <li>Using a message allows us to create an event listener, or to use an event listener. Example:<br>
+        worker.addEventListener('message', (event) => {<br>
+        console.log(event.data);<br>
+        }, false);</li>
+    <li>Stop a worker by using "terminate()": worker.terminate();</li>
+    <li>When you are inside the worker, you can use: self.close();</li>
+    <h4>Factorizor</h4>
+    <button id='rainbow'>Change Color</button>
+    <form>
+        <label for='number'>Enter a Number to Factorize:</label>
+        <input id='number' type='number' name='number' min=1 value='20'>
+        <button type='submit'>Submit</button>
+    </form>
+    <div id='output'></div>
+
+    <p>Couldn't really get this message thing to work, so this would be a question I have, is how to get it working.</p>
+    <form>
+        <label for='message'>Enter a Message:</label>
+        <input type='text' name='message'>
+        <button type='submit'>Submit</button>
+    </form>
+    <div id='websocketoutput'></div>
+
+    <h4>Canvas Tag</h4>
+    <canvas id='canvas' width='400' height='400'>Sorry, but your browser does not support the canvas element</canvas>
+    
+
+    <script src='main.js'></script>
+    <script>
+        function goBack() {
+        window.history.back();
+        }
+    </script>
+</body>
+</html>

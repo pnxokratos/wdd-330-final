@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Week 4 Notes</title>
+    
+    <link rel="stylesheet" href="styles.css" />
+    <script src="../js/main.js">console.log(document.forms);
+        const form = document.forms['search'];
+        // const [input,button] = form.elements;
+        const input = form.elements.searchInput;
+        input.addEventListener('focus', () => alert('focused'), false);</script>
+</head>
+
+<body>
+    <h1>WDD330 Week 4 Notes</h1> 
+    <h4>Chapter 8 (Forms)</h4>
+    <p>Here's an example of a very simple form:</p>
+    <form name='searchs' action='/search'>
+        <input name='searchInput'>
+        <button type='submit'>Search</button>
+    </form>
+    <li>const form = document.forms['search']; This returns an HTML collection of all the forms in the document in the
+        order they appear in the markup. <em>I bet this will be useful for the project coming up.</em></li>
+    <li>const [input,button] = form.elements; This returns an HTML collection of all the elements contained in the form.
+        <em>I bet this will also be useful for the project coming up.</em></li>
+    <li>The form.submit() will submit the form automatically. I wonder what this looks like though. Where does it go?
+        I'd love to see an example of this.</li>
+    <li>There's a submit event for js that can do some things with it before it gets sent to the backend.</li>
+    <li>You can also retrieve and change values in a form with js.</li>
+
+    <form id='hero'>
+        <label for='heroName'>Name:
+            <input type='text' id='heroName' name='heroName' autofocus placeholder='Your Super Hero Name' maxlength=32>
+        </label>
+        <button type='submit'>Submit</button>
+    </form>
+
+    <h4>This is an example of a checkbox from the reading.</h4>
+    <p>Super Powers:</p>
+    <label for='flight'>Flight:
+        <input type='checkbox' id='flight' value='Flight' name='powers'>
+    </label>
+    <label for='strength'>Super Strength:
+        <input type='checkbox' id='strength' value='Strength' name='powers'>
+    </label>
+    <label for='speed'>Super Speed:
+        <input type='checkbox' id='speed' value='Super Speed' name='powers'>
+    </label>
+    <label for='energy'>Energy Blasts:
+        <input type='checkbox' id='energy' value='Energy Blasts' name='powers'>
+    </label>
+    <label for='telekinesis'>Telekinesis:
+        <input type='checkbox' id='telekinesis' value='Telekinesis' name='powers'>
+    </label>
+
+    <h4>Raido type input boxes - Basically a boolean</h4>
+    <li>Only one option can be chosen</li>
+    <p>What type of hero are you?</p>
+    <label for='hero'>Hero:
+        <input type='radio' name='category' value='Hero' id='hero'>
+    </label>
+    <label for='villain'>Villain:
+        <input type='radio' name='category' value='Villain' id='villain'>
+    </label>
+    <label for='anti-hero'>Anti-Hero:
+        <input type='radio' name='category' value='Antihero' id='anti-hero'>
+    </label>
+    <li>When you name your inputs, in this case it is called "category", you can easily reference them by form.category.
+    </li>
+
+    <h3>Chapter 12 - Object-Oriented Programming in JavaScript</h3>
+    <li>There are Constructor functions. They look like this:</li>
+    <p>const Dice = function(sides=6){<br> this.sides = sides;<br> this.roll = function() {<br> return
+        Math.floor(this.sides * Math.random() + 1)<br> }
+        <br> }
+    </p>
+    <li>What's important to note is the "this" keyword. It is used to represent the object that will be returned by the
+        constructor function.</li>
+    <li>An "instance" of the above code looks like this using the "new" operator:</li>
+    <p>const redDice = new Dice();</p>
+    <li>So they assigned that whole object to a new variable called redDice. </li>
+    <h4>Class Declarations</h4>
+    <li>Constructor functions are good, but class declarations are better. Here's code that is better than above:</li>
+    <p>class Dice {<br> constructor(sides=6) {<br> this.sides = sides;<br> }
+        <br> roll() {<br> return Math.floor(this.sides * Math.random() + 1)<br> }
+        <br>
+        <li>Now to create an instance of the Dice class, the new operator is used and must be used:</li>
+    <p>const blueDice = new Dice(20);</p>
+    <li>Have to use the new operator or it will give you errors.</li>
+    <li>All objects have a constructor property that will return the constructor function that created it.</li>
+
+    }</p>
+    <li>Sometimes we want to go in and add more properties or even methods to a class declaration after it's been
+        created. We can do this by using the prototype property.</li>
+    <li>className.prototype.whateverpropertyyouwanthere</li>
+    <li>The cool thing about changing a property with the class declarations, it gets changed across the board. So every
+        instance will get that change updated. This is called, "live". The Prototype is live.</li>
+    <li>We can assign each individual instance to a new property. We just call that specific instance and assign it a
+        new value. We can change all the values at once in a class declaration though. If we want to change just the one
+        instance, you have to assign
+        it directly.</li>
+
+}</p>
+    <h4>Inheritance</h4>
+    <li>Extends is a way to inherit all the parent class qualities. The book gave the example of creating a ninja
+        turtles class using the extension of turtles as the parent class.</li>
+    <li>Inside the constructor, if you are going to use the same variable name to assign it to a new inherited class,
+        you use the keyword "super."</li>
+    <h4>Property Descriptors</h4>
+    <li>value ― This is the value of the property and is undefined by default</li>
+    <li>writable ― This boolean value shows whether a property can be changed or not, and is false by default.</li>
+    <li>enumerable ― this boolean value shows whether a property will show up when the object is displayed in a for in
+        loop, and is false by default</li>
+    <li>configurable ― this boolean value shows whether you can delete a property or change any of its attributes, and
+        is false by default.</li>
+    <li>getOwnPropertyDesciptor() method - get's the values in a object function.</li>
+    <li>Obejct.defineProperty() method - allows each attribute to be set.</li>
+    <li>So when you are setting attributes inside this method, you can use the "writeable" keyword and set it to false.
+        Then you can't change the value of it. It's a security measure.</li>
+    <li>Here's an example: Object.defineProperty(me, 'eyeColor', { value: 'blue', writable: false, enumerable: true });
+        results { name: 'DAZ' , age: 21, eyeColor: 'blue' }</li>
+
+        <button onclick="goBack()">Go Back</button>
+
+        <script>
+        function goBack() {
+        window.history.back();
+        }
+        </script>
+
+
+</html>

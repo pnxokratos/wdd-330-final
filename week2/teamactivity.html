@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WDD 330 - Team Work</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+        function part1() {
+            const text = document.getElementById("text_input").value;
+            document.getElementById("show").innerHTML = 'You entered: ' + text;
+        }
+        // This function adds all numbers leading up to the user input number
+        function Addition() {
+            var userNumber = parseInt(document.getElementById("user_input").value);
+            let sum = 0;
+            if (typeof userNumber == "number") {
+                for (let startnumber = 1; userNumber >= startnumber; startnumber++) {
+                    sum += startnumber;
+                }
+                document.getElementById("sum").innerHTML = sum;
+            }
+            else {
+                document.getElementById("sum").innerHTML = "Please enter a number";
+            }
+        }
+
+        const calculate = function () {
+            var user_add1 = parseFloat(document.getElementById("user_add1").value);
+            var user_add2 = parseFloat(document.getElementById("user_add2").value);
+            let operator = document.getElementById("calculator").value;
+            switch (operator) {
+                case "+":
+                    result = user_add1 + user_add2;
+                    break;
+                case "-":
+                    result = user_add1 - user_add2;
+                    break;
+                case "*":
+                    result = user_add1 * user_add2;
+                    break;
+                case "/":
+                    result = user_add1 / user_add2;
+                    break;
+
+            }
+            document.getElementById("answer").innerHTML = result;
+        }
+    </script>
+</head>
+
+<body>
+
+    <h1><a href="../index.html">Team Assignment Week 2</a></h1>
+    <h2>Working with functions</h2>
+    <!--Add a text input and a button. Put an empty div with an ID below those. -->
+    <h3>PART 1 - input</h3>
+    <p>Write whatever you want here <input id="text_input" type="text"/>, then press here <button class="buttonEx" onclick="part1()">Show</button></p>
+    <div id="show"></div>
+
+    <h3>PART 2 - input</h3>
+    <p>Type any number here <input id="user_input"></input> and I'll add all the numbers up to your number.</p>
+    <button onclick="Addition()">Calculate</button>
+    <div id="sum"></div>
+    <h3>PART 3-4 - Calculator</h3>
+    <p><input id="user_add1"></input> <label></label>
+        <select id="calculator">
+            <option disabled selected value> -- select an option -- </option>
+            <option value="+">Add</option>
+            <option value="-">Subtract</option>
+            <option value="*">Times (multiply)</option>
+            <option value="/">Divide</option>
+        </select> <input id="user_add2"></input><button onclick="calculate()">Equals</button></p>
+
+    <div id="answer"></div>
+</body>
+
+</html>

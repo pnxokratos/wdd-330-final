@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Learn the Camera - Camera Finder</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- blank favicon for now -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <!-- http://localhost//WDD330/VSCodeTest/WDD330/finalProject/index.html -->
+
+</head>
+
+<body>
+    <div id="shootingCamera">
+        <!-- <img src="images/lblogo.jpg" id="logo"> -->
+    </div>
+    <p class="directions">It can be overwhelming to find the right camera for you. This simple app is designed to narrow the list of options that would best suit your need. Choose the best options for you, then click "Find Your Camera" to get a list of options customized for you.</p>
+    <div id="dropdownmenus">
+        <div class="layout">
+            <h2>Select Your Level</h2>
+            <select id="level" class="dropdownmenus">
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+            </select>
+        </div>
+        <div class="layout">
+            <h2>Select the Type of Camera</h2>
+            <select id="type" class="dropdownmenus">
+                <option value="compound">DSLR</option>
+                <option value="recurve">Full Frame</option>
+            </select>
+        </div>
+        <div class="layout">
+            <h2>Just for fun or Professional?</h2>
+            <select id="category" class="dropdownmenus">
+                <option value="competition">Hobby Photographer</option>
+                <option value="hunting">Professional Photographer</option>
+            </select>
+        </div>
+    </div>
+    <button onclick="window.myCameras.filterResults()" id="findcamerabutton">Find Your Camera</button>
+    <div id="results">
+
+    </div>
+    <div id="error" class="hidden">
+        <p>*This Camera is already in your favorites list.*</p>
+    </div>
+    <h2 class="favoriteCameras">My Favorite Cameras</h2>
+    <div id="favorites">
+        
+    </div>
+<script src="../finalProject/js/main.js" type ="module"></script>
+
+</body>
+
+</html>
