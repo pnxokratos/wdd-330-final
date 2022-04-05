@@ -17,7 +17,7 @@ html {
     animation: shootcamera 1s 5;
     width: 240px;
     height: 175px;
-    background-image: url(../images/logo6.jpg);
+    background-image: url(../images/logo8.jpg);
     position: relative;
     animation-timing-function: steps(5, end);
     margin: auto;
