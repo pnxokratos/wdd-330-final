@@ -155,7 +155,7 @@ export default class cameraUtilities {
             favoritesDiv.innerHTML += `<p>No cameras have been saved to your favorites yet.</p>`;
         }
         savedArrayofCameras.forEach(favcamera => {
-            let specificCamera = cameras.filter(camera => camera.name == camera);
+            let specificCamera = cameras.filter(camera => camera.name == favcamera);
             let item = "";
             item += `
                 <div class="camerabox3">
