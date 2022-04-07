@@ -179,7 +179,7 @@ select.dropdownmenus {
 
 /* Camera pictures */
 .image {
-    max-width: 100px;
+    max-width: auto;
     max-height: 200px;
     animation: fadeIn ease 4s;
     /* width: auto;
