@@ -69,10 +69,6 @@ export default class cameraUtilities {
                     <div><img src="${camera.imgSrc}" alt="${camera.imgAlt}" class="image"></div>
                         <div class = "detail">
                             <div>
-                                <h5>Draw Weight</h5>
-                                <p>${camera.drawWeight}</p>
-                            </div>
-                            <div>
                                 <h5>Mass Weight</h5>
                                 <p>${camera.massWeight}</p>
                             </div>
@@ -96,14 +92,6 @@ export default class cameraUtilities {
             <h3>${specificCamera[0].name}</h3>
             <div><img src="${specificCamera[0].imgSrc}" alt="${specificCamera[0].imgAlt}" class="image"></div>
                 <div class = "detail">
-                    <div>
-                        <h5>Draw Weight</h5>
-                        <p>${specificCamera[0].drawWeight}</p>
-                    </div>
-                    <div>
-                        <h5>Draw Length</h5>
-                        <p>${specificCamera[0].drawLength}</p>
-                    </div>
                     <div>
                         <h5>Mass Weight</h5>
                         <p>${specificCamera[0].massWeight}</p>
