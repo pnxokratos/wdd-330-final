@@ -57,6 +57,7 @@ export const cameras = [{
         massWeight: '450g',
         speed: '11 fps',
         axle2axle: '20.9MP',
+        level: 'beginner',
         level: 'intermediate',
         category: 'professional',
         type: 'mirrorless',

@@ -101,7 +101,7 @@ export default class cameraUtilities {
                         <p>${specificCamera[0].speed}</p>
                     </div> 
                     <div>
-                        <h5>Axle to Axle</h5>
+                        <h5>Resolution</h5>
                         <p>${specificCamera[0].axle2axle}</p>
                     </div> 
                     <div>
